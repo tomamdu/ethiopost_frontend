@@ -13,17 +13,18 @@ export default class News extends React.Component {
   }
 
       componentDidMount() {
-        let url= "http://localhost:8000/api/post";
+        let url= "api/posts";
         
         axios.get(url)
           .then(res => {
            // console.log(res);
             this.setState({ posts:res.data.data });
+            
           });
       }
 
  
-
+ 
         
    
   render(){
@@ -34,23 +35,7 @@ export default class News extends React.Component {
         <div>
             
   <div>
-               <div className="main-panel">
-    <div className="flash-news-banner">
-      <div className="container">
-        <div className="d-lg-flex align-items-center justify-content-between">
-          <div className="d-flex align-items-center">
-            <span className="badge badge-dark mr-3">Flash news</span>
-            <p className="mb-0">
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-            </p>
-          </div>
-          <div className="d-flex">
-            <span className="mr-3 text-danger">Wed, March 4, 2020</span>
-            
-            <span className="text-danger">30°C,London</span>
-          </div>
-        </div>
-      </div>
+     
     </div>
     <div className="content-wrapper">
       <div className="container">
@@ -82,8 +67,8 @@ export default class News extends React.Component {
        {this.state.posts.map(post =>
                     <div className="d-flex border-bottom-blue pt-3 pb-4 align-items-center justify-content-between">
                      <div className="pr-3">
-                       <Link className="tom-nav-link" to = {`/post/${post.id}`}>
-                       {post.Title}
+                       <Link className="tom-nav-link" to = {`/posts/${post.id}`}>
+                       {post.title}
                        </Link>
                        
                        <div className="fs-12">
@@ -332,8 +317,8 @@ export default class News extends React.Component {
     </div>
   </div>
 
-        </div>
-        </div>
+        
+      
 
     )
 }

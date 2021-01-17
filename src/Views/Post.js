@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 
 function Post(){
     const {id} = useParams()
-    const url = `http://localhost:8000/api/post/${id}`;
+    const url = `api/posts/${id}`;
     const [post, setpost] = useState({
         loading: false,
         data: null,
@@ -46,23 +46,7 @@ function Post(){
         <div>
               
               <div>
-  <div className="flash-news-banner">
-    <div className="container">
-      <div className="d-lg-flex align-items-center justify-content-between">
-        <div className="d-flex align-items-center">
-          <span className="badge badge-dark mr-3">Flash news</span>
-          <p className="mb-0">
-            Lorem Ipsum has been the industry's standard dummy text ever
-            since the 1500s.
-          </p>
-        </div>
-        <div className="d-flex">
-          <span className="mr-3 text-danger">Wed, March 4, 2020</span>
-          <span className="text-danger">30°C,London</span>
-        </div>
-      </div>
-    </div>
-  </div>
+  
   <div className="content-wrapper">
     <div className="container">
       <div className="col-sm-12">
@@ -72,7 +56,7 @@ function Post(){
               <div className="col-lg-8">
                 <div>
                   <h1 className="font-weight-600 mb-1">
-                    {post.data.data.Title}
+                    {post.data.title}
                   </h1>
                   <p className="fs-13 text-muted mb-0">
                     <span className="mr-2">Photo </span>10 Minutes ago
@@ -82,7 +66,7 @@ function Post(){
                   </div>
                   <p className="mb-4 fs-15">
                     
-                  {post.data.data.Post}
+                  {post.data.body}
                   </p>
                 </div>
                 <div className="d-lg-flex">
